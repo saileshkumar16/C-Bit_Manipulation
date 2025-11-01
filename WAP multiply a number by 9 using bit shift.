@@ -1,0 +1,12 @@
+#include <stdio.h>
+
+int main()
+{
+    unsigned int num = 7;
+    
+    unsigned int res = (num << 3) + num;
+    
+    printf("%d",res);
+
+    return 0;
+}
