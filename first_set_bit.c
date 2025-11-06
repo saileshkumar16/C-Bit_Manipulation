@@ -1,26 +1,21 @@
 #include <stdio.h>
-
-int main()
+#include <stdint.h>
+int main() 
 {
-    unsigned int x = 40; // Example: 0b101000
-    int pos = 1;
-    int found = 0;
-
-    while (x!=0)
+    int num = 12; // binary: 1100
+    int pos = 0; 
+    
+    while(num != 0)
     {
-        if (x & 1)
+        if(num & 1)
         {
-            found = 1;
-            break; // Exit the loop when first set bit is found
+            printf("%d ", pos);
+            break;
         }
-        x = x >> 1;
+        
         pos++;
+        num = num >> 1;
     }
-
-    if (found)
-        printf("First set bit is at position: %d\n", pos);
-    else
-        printf("No set bit found (x = 0)\n");
-
+    
     return 0;
 }
