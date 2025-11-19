@@ -13,3 +13,18 @@ int main()
 
     return 0;
 }
+--------------------------------------------------------
+#include <stdio.h>
+int main()
+{
+    int num = 0x12345678;
+    
+    char *ptr = (char *)&num;
+    
+    if(*ptr==0x78)
+    printf("Little endian architecture");
+    else
+    printf("Big endian architecture");
+
+    return 0;
+}
