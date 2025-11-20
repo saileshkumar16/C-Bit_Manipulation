@@ -29,29 +29,25 @@ int main()
 #include <stdio.h>
 #include <stdint.h>
 
-void endian_swap(uint32_t *num)
-{
-    unsigned char *ptr = (unsigned char *)num;  // pointer to each byte
-    unsigned char temp;
-
-    // swap byte 0 ↔ byte 3
-    temp = ptr[0];
-    ptr[0] = ptr[3];
-    ptr[3] = temp;
-
-    // swap byte 1 ↔ byte 2
-    temp = ptr[1];
-    ptr[1] = ptr[2];
-    ptr[2] = temp;
-}
-
 int main()
 {
     uint32_t num = 0x11223344;
 
     printf("Before swap: 0x%x\n", num);
 
-    endian_swap(&num);  // perform byte swap
+    // Pointer to bytes of num
+    unsigned char *ptr = (unsigned char *)&num;
+    unsigned char temp;
+
+    // Swap byte 0 <-> byte 3
+    temp = ptr[0];
+    ptr[0] = ptr[3];
+    ptr[3] = temp;
+
+    // Swap byte 1 <-> byte 2
+    temp = ptr[1];
+    ptr[1] = ptr[2];
+    ptr[2] = temp;
 
     printf("After swap : 0x%x\n", num);
 
